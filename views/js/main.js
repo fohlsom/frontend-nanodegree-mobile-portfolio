@@ -449,16 +449,18 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
-  // Fredrik: Replaced querySelectorAll with getElementsByClassName
-  // Fredrik: Moved dx and newwidth variable out of the loop.
+  // Comments:
+  // Fredrik: Replaced document.querySelectorAll with document.getElementsByClassName 
+  // for improved speed. Cached variables dx and newwidth.
+
+  var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[0], size);
+  var newwidth = (document.getElementsByClassName("randomPizzaContainer")[0].offsetWidth + dx) + 'px';
+
   function changePizzaSizes(size) {
-    var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[i], size);
-    var newwidth = (document.getElementsByClassName("randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-    numRandPizza = document.getElementsByClassName("randomPizzaContainer").length;
-    for (var i = 0; i < numRandPizza; i++) {
+    for (var i = 0; i < document.getElementsByClassName("randomPizzaContainer").length; i++) {
       document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
     }
-  }
+  }  
 
   changePizzaSizes(size);
 
@@ -506,8 +508,8 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-
   var cachedScrollTop=document.body.scrollTop;
+
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((cachedScrollTop / 1250) + (i % 5));

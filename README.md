@@ -45,11 +45,6 @@ Optimized images, css inline instead of as a separate file, moved render blockin
 
 - Cached document.body.scrollTop by putting it in a variable out of the loop.
 - Replaced querySelectorAll with getElementsByClassName.
-- Cached variable dx and newwidth in the changePizzaSizes function
-
-
-
-
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
