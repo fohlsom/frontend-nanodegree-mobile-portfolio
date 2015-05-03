@@ -452,11 +452,11 @@ var resizePizzas = function(size) {
   // Fredrik: Replaced querySelectorAll with getElementsByClassName
   // Fredrik: Moved dx and newwidth variable out of the loop.
   function changePizzaSizes(size) {
-    var dx = determineDx(document.getElementsByClassName(".randomPizzaContainer")[i], size);
-    var newwidth = (document.getElementsByClassName(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-
-    for (var i = 0; i < document.getElementsByClassName(".randomPizzaContainer").length; i++) {
-      document.getElementsByClassName(".randomPizzaContainer")[i].style.width = newwidth;
+    var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[i], size);
+    var newwidth = (document.getElementsByClassName("randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+    numRandPizza = document.getElementsByClassName("randomPizzaContainer").length;
+    for (var i = 0; i < numRandPizza; i++) {
+      document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
     }
   }
 
